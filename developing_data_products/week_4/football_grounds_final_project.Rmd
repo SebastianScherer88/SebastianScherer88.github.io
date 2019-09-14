@@ -1,0 +1,113 @@
+---
+title: "European football grounds"
+author: "Sebastian Scherer"
+date: "14 September 2019"
+output: html_document
+---
+
+# {.tabset}
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Overview
+
+The below map shows a selection of european football clubs' grounds across france, spain germany and the UK.
+
+It also highlights the two clubs that I support:
+
+1. AFC Wimbledon (UK, Football league)
+2. Eintracht Frankfurt (Germany, Bundesliga)
+
+## The code dependencies
+
+```{r}
+# loading dependencies
+library(magrittr)
+library(data.table)
+library(dplyr)
+library(leaflet)
+```
+
+## The data
+
+```{r, echoe = FALSE,comment=''}
+# loading data
+football_grounds_data <- data.table::fread('C:/Users/bettmensch/Documents/Coursera/developing_data_products/week_4/european_grounds_data.csv',
+                  data.table = FALSE) %>%
+  dplyr::select(Latitude, Longitude, Team, League, Stadium, Capacity)
+
+frankfurt_ground <- football_grounds_data %>%
+  dplyr::filter(Team == 'Eintracht Frankfurt')
+
+wimbledon_ground <- football_grounds_data %>%
+  dplyr::filter(Team == 'AFC Wimbledon')
+
+remaining_grounds <- football_grounds_data %>%
+  dplyr::filter(!Team %in% c('Eintracht Frankfurt','AFC Wimbledon'))
+
+# top 10 records
+remaining_grounds[1:10,]
+```
+
+## The grounds map
+
+We create the colour palette and some custom icon markers.
+
+```{r pressure, fig.width=10, fig.height=10}
+# create color palette for markers according to league
+pal <- leaflet::colorNumeric(c("red", "green", "blue"), 1:length(unique(football_grounds_data$League)))
+
+# create custom markers for favourites
+frankfurt_icon <- leaflet::makeIcon(
+  'C:/Users/bettmensch/Documents/Coursera/developing_data_products/week_4/frankfurt_badge.png',
+  iconWidth = 50,
+  iconHeight = 50,
+  iconAnchorX = 50/2,
+  iconAnchorY = 50/2
+)
+
+wimbledon_icon <- leaflet::makeIcon(
+  'C:/Users/bettmensch/Documents/Coursera/developing_data_products/week_4/afc_wimbledon_badge.png',
+  iconWidth = 44,
+  iconHeight = 50,
+  iconAnchorX = 44/2,
+  iconAnchorY = 50/2
+)
+
+favourite_icons <- c(frankfurt_icon,wimbledon_icon)
+```
+
+Look at all these footbal grounds!
+
+```{r,echo = FALSE,fig.width = 10, fig.height = 9}
+grounds_map <- leaflet::leaflet(data = remaining_grounds) %>%
+  leaflet::addTiles() %>%
+  leaflet::addCircleMarkers(color = pal(remaining_grounds$League),
+                            radius = ~Capacity/10000,
+                            label = paste(remaining_grounds$Stadium,'
+                                          (',
+                                          remaining_grounds$Capacity,
+                                          ';',
+                                          remaining_grounds$Team,')')
+  ) %>%
+  leaflet::addMarkers(lat = frankfurt_ground$Latitude,
+                      lng = frankfurt_ground$Longitude,
+                      label = paste(frankfurt_ground$Stadium,'
+                                          (',
+                                          frankfurt_ground$Capacity,
+                                          ';',
+                                          frankfurt_ground$Team,')'),
+                      icon = frankfurt_icon) %>%
+  leaflet::addMarkers(lat = wimbledon_ground$Latitude,
+                      lng = wimbledon_ground$Longitude,
+                      label = paste(wimbledon_ground$Stadium,'
+                                          (',
+                                          wimbledon_ground$Capacity,
+                                          ';',
+                                          wimbledon_ground$Team,')'),
+                      icon = wimbledon_icon)
+
+grounds_map
+```
