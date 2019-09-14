@@ -57,7 +57,8 @@ We create the colour palette and some custom icon markers.
 
 ```{r pressure, fig.width=10, fig.height=10}
 # create color palette for markers according to league
-pal <- leaflet::colorNumeric(c("red", "green", "blue"), 1:length(unique(football_grounds_data$League)))
+league_values <- football_grounds_data$League %>% unique() %>% .[order(.)]
+pal <- leaflet::colorNumeric(c("red", "green", "blue"), 1:length(league_values))
 
 # create custom markers for favourites
 frankfurt_icon <- leaflet::makeIcon(
@@ -107,7 +108,15 @@ grounds_map <- leaflet::leaflet(data = remaining_grounds) %>%
                                           wimbledon_ground$Capacity,
                                           ';',
                                           wimbledon_ground$Team,')'),
-                      icon = wimbledon_icon)
+                      icon = wimbledon_icon) %>%
+  leaflet::addLegend(position = "topright", 
+                     colors = pal(league_values),
+                     values = league_values,
+                     title = 'League',
+                     labels = league_values)#, values, na.label = "NA", bins = 7, colors,
+  #opacity = 0.5, labels = NULL, labFormat = labelFormat(),
+  #title = NULL, className = "info legend", layerId = NULL,
+  #group = NULL, data = getMapData(map))
 
 grounds_map
 ```
