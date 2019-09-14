@@ -34,7 +34,7 @@ library(leaflet)
 
 ```{r, echoe = FALSE,comment=''}
 # loading data
-football_grounds_data <- data.table::fread('C:/Users/bettmensch/Documents/Coursera/developing_data_products/week_4/european_grounds_data.csv',
+football_grounds_data <- data.table::fread('C:/Users/bettmensch/Documents/Coursera/developing_data_products/week_2/european_grounds_data.csv',
                   data.table = FALSE) %>%
   dplyr::select(Latitude, Longitude, Team, League, Stadium, Capacity)
 
@@ -61,7 +61,7 @@ pal <- leaflet::colorNumeric(c("red", "green", "blue"), 1:length(unique(football
 
 # create custom markers for favourites
 frankfurt_icon <- leaflet::makeIcon(
-  'C:/Users/bettmensch/Documents/Coursera/developing_data_products/week_4/frankfurt_badge.png',
+  'C:/Users/bettmensch/Documents/Coursera/developing_data_products/week_2/frankfurt_badge.png',
   iconWidth = 50,
   iconHeight = 50,
   iconAnchorX = 50/2,
@@ -69,7 +69,7 @@ frankfurt_icon <- leaflet::makeIcon(
 )
 
 wimbledon_icon <- leaflet::makeIcon(
-  'C:/Users/bettmensch/Documents/Coursera/developing_data_products/week_4/afc_wimbledon_badge.png',
+  'C:/Users/bettmensch/Documents/Coursera/developing_data_products/week_2/afc_wimbledon_badge.png',
   iconWidth = 44,
   iconHeight = 50,
   iconAnchorX = 44/2,
