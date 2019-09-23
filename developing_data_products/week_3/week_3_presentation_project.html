@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Week 3 presentation project</title>
+  <title>The mpg and cyl relationship in the mtcars data set</title>
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -20,7 +20,7 @@
     var SLIDE_CONFIG = {
       // Slide settings
       settings: {
-                title: 'Week 3 presentation project',
+                title: 'The <em>mpg</em> and <em>cyl</em> relationship in the <strong>mtcars</strong> data set',
                         useBuilds: true,
         usePrettify: true,
         enableSlideAreas: true,
@@ -4936,7 +4936,7 @@ slide:not(.current) .plotly.html-widget{
           </hgroup>
   </slide>
 
-<slide class=""><hgroup><h2>The <em>mpg</em> and <em>cyl</em> relationship in the <strong>mtcars</strong> data set</h2></hgroup><article  id="the-mpg-and-cyl-relationship-in-the-mtcars-data-set">
+<slide class=""><hgroup><h2>Overview</h2></hgroup><article  id="overview">
 
 <p>In this presentation, we will have a look at the features</p>
 
@@ -4958,70 +4958,11 @@ slide:not(.current) .plotly.html-widget{
 
 <p>We will need the following packages.</p>
 
-<pre class = 'prettyprint lang-r'>library(tidyverse)</pre>
-
-<pre >## Warning: package &#39;tidyverse&#39; was built under R version 3.5.3</pre>
-
-<pre >## -- Attaching packages ------------------------------------------------------------------------------------- tidyverse 1.2.1 --</pre>
-
-<pre >## v ggplot2 3.2.1     v purrr   0.3.2
-## v tibble  2.1.3     v dplyr   0.8.3
-## v tidyr   0.8.3     v stringr 1.4.0
-## v readr   1.3.1     v forcats 0.4.0</pre>
-
-<pre >## Warning: package &#39;ggplot2&#39; was built under R version 3.5.3</pre>
-
-<pre >## Warning: package &#39;tibble&#39; was built under R version 3.5.3</pre>
-
-<pre >## Warning: package &#39;tidyr&#39; was built under R version 3.5.3</pre>
-
-<pre >## Warning: package &#39;readr&#39; was built under R version 3.5.3</pre>
-
-<pre >## Warning: package &#39;purrr&#39; was built under R version 3.5.3</pre>
-
-<pre >## Warning: package &#39;dplyr&#39; was built under R version 3.5.3</pre>
-
-<pre >## Warning: package &#39;stringr&#39; was built under R version 3.5.3</pre>
-
-<pre >## Warning: package &#39;forcats&#39; was built under R version 3.5.3</pre>
-
-<pre >## -- Conflicts ---------------------------------------------------------------------------------------- tidyverse_conflicts() --
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()</pre>
-
-<pre class = 'prettyprint lang-r'>library(plotly)</pre>
-
-<pre >## Warning: package &#39;plotly&#39; was built under R version 3.5.3</pre>
-
-<pre >## 
-## Attaching package: &#39;plotly&#39;</pre>
-
-<pre >## The following object is masked from &#39;package:ggplot2&#39;:
-## 
-##     last_plot</pre>
-
-<pre >## The following object is masked from &#39;package:stats&#39;:
-## 
-##     filter</pre>
-
-<pre >## The following object is masked from &#39;package:graphics&#39;:
-## 
-##     layout</pre>
-
-<pre class = 'prettyprint lang-r'>library(magrittr)</pre>
-
-<pre >## Warning: package &#39;magrittr&#39; was built under R version 3.5.3</pre>
-
-<pre >## 
-## Attaching package: &#39;magrittr&#39;</pre>
-
-<pre >## The following object is masked from &#39;package:purrr&#39;:
-## 
-##     set_names</pre>
-
-<pre >## The following object is masked from &#39;package:tidyr&#39;:
-## 
-##     extract</pre>
+<ul>
+<li><strong>tidyverse</strong></li>
+<li><strong>plotly</strong></li>
+<li><strong>magrittr</strong></li>
+</ul>
 
 </article></slide><slide class=""><hgroup><h2>Univariate box plot: Miles per gallon</h2></hgroup><article  id="univariate-box-plot-miles-per-gallon">
 
@@ -5036,8 +4977,8 @@ slide:not(.current) .plotly.html-widget{
 
 <h3>Plot</h3>
 
-<div id="htmlwidget-af31b920088421e8450e" style="width:720px;height:432px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-af31b920088421e8450e">{"x":{"visdat":{"b40217f69dd":["function () ","plotlyVisDat"]},"cur_data":"b40217f69dd","attrs":{"b40217f69dd":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":{},"type":"box","name":"Miles per gallon","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Distribution of mpg","xaxis":{"domain":[0,1],"automargin":true,"title":"mpg"},"yaxis":{"domain":[0,1],"automargin":true},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"fillcolor":"rgba(31,119,180,0.5)","x":[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2,17.8,16.4,17.3,15.2,10.4,10.4,14.7,32.4,30.4,33.9,21.5,15.5,15.2,13.3,19.2,27.3,26,30.4,15.8,19.7,15,21.4],"type":"box","name":"Miles per gallon","orientation":"h","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-d017424b5b74b9826530" style="width:720px;height:432px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d017424b5b74b9826530">{"x":{"visdat":{"3f284582017":["function () ","plotlyVisDat"]},"cur_data":"3f284582017","attrs":{"3f284582017":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":{},"type":"box","name":"Miles per gallon","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Distribution of mpg","xaxis":{"domain":[0,1],"automargin":true,"title":"mpg"},"yaxis":{"domain":[0,1],"automargin":true},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"fillcolor":"rgba(31,119,180,0.5)","x":[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2,17.8,16.4,17.3,15.2,10.4,10.4,14.7,32.4,30.4,33.9,21.5,15.5,15.2,13.3,19.2,27.3,26,30.4,15.8,19.7,15,21.4],"type":"box","name":"Miles per gallon","orientation":"h","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 
 </article></slide><slide class=""><hgroup><h2>Univariate bar chart: Number of cylinders</h2></hgroup><article  id="univariate-bar-chart-number-of-cylinders">
 
@@ -5054,8 +4995,8 @@ slide:not(.current) .plotly.html-widget{
 
 <h3>Plot</h3>
 
-<div id="htmlwidget-e4fce36d8da940424b55" style="width:720px;height:432px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e4fce36d8da940424b55">{"x":{"visdat":{"b403ede1467":["function () ","plotlyVisDat"]},"cur_data":"b403ede1467","attrs":{"b403ede1467":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":{},"y":{},"type":"bar","name":"Number of cylinders","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Distribution of cyl","xaxis":{"domain":[0,1],"automargin":true,"title":"cyl"},"yaxis":{"domain":[0,1],"automargin":true,"title":"cyl_count"},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[4,6,8],"y":[11,7,14],"type":"bar","name":"Number of cylinders","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-e306de3fd1047e248e08" style="width:720px;height:432px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e306de3fd1047e248e08">{"x":{"visdat":{"3f28171304d":["function () ","plotlyVisDat"]},"cur_data":"3f28171304d","attrs":{"3f28171304d":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":{},"y":{},"type":"bar","name":"Number of cylinders","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Distribution of cyl","xaxis":{"domain":[0,1],"automargin":true,"title":"cyl"},"yaxis":{"domain":[0,1],"automargin":true,"title":"cyl_count"},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[4,6,8],"y":[11,7,14],"type":"bar","name":"Number of cylinders","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 
 </article></slide><slide class=""><hgroup><h2>Bivariate stats</h2></hgroup><article  id="bivariate-stats">
 
@@ -5080,8 +5021,10 @@ slide:not(.current) .plotly.html-widget{
 
 <h3>Plot</h3>
 
-<div id="htmlwidget-badf1d3c01422b8a2588" style="width:720px;height:432px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-badf1d3c01422b8a2588">{"x":{"visdat":{"b40621e7cd0":["function () ","plotlyVisDat"]},"cur_data":"b40621e7cd0","attrs":{"b40621e7cd0":{"x":{},"y":{},"error_y":{"array":{},"color":"#000000"},"name":"Miles per gallon","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Miles per gallon aggregated across number of cylinders","xaxis":{"domain":[0,1],"automargin":true,"title":"cyl"},"yaxis":{"domain":[0,1],"automargin":true,"title":"mean_mpg"},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[4,6,8],"y":[26.6636363636364,19.7428571428571,15.1],"error_y":{"color":"#000000","array":[20.3385454545454,2.11285714285714,6.55384615384615]},"name":"Miles per gallon","type":"bar","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script></article></slide>
+<div id="htmlwidget-2a21b4b51054a0aa1468" style="width:720px;height:432px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2a21b4b51054a0aa1468">{"x":{"visdat":{"3f287c1e4c84":["function () ","plotlyVisDat"]},"cur_data":"3f287c1e4c84","attrs":{"3f287c1e4c84":{"x":{},"y":{},"error_y":{"array":{},"color":"#000000"},"name":"Miles per gallon","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Miles per gallon aggregated across number of cylinders","xaxis":{"domain":[0,1],"automargin":true,"title":"cyl"},"yaxis":{"domain":[0,1],"automargin":true,"title":"mean_mpg"},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[4,6,8],"y":[26.6636363636364,19.7428571428571,15.1],"error_y":{"color":"#000000","array":[20.3385454545454,2.11285714285714,6.55384615384615]},"name":"Miles per gallon","type":"bar","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+
+</article></slide><slide class=""><hgroup><h2>Thank You!</h2></hgroup><article  id="thank-you"></article></slide>
 
 
   <slide class="backdrop"></slide>
