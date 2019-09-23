@@ -1,0 +1,103 @@
+---
+title: "Week 3 presentation project"
+author: "Sebastian Scherer"
+date: "23 September 2019"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## The *mpg* and *cyl* relationship in the **mtcars** data set
+
+In this presentation, we will have a look at the features
+
+- `mpg`
+- `cyl`
+
+from the `mtcars` data set (32 observations) and how they relate to one another. We will do this by showing some univariate and bivariate plots. The content of this presentation is as follows:
+
+1. Package dependencies
+2. Univariate box plot: Miles per gallon
+3. Univariate bar chart: Number of cylinders
+4. Bivariate stats
+
+## Package dependencies
+
+We will need the following packages.
+
+```{r,results='hide'}
+library(tidyverse)
+library(plotly)
+library(magrittr)
+```
+
+## Univariate box plot: Miles per gallon
+
+### Code
+
+```{r}
+plot <- mtcars %>% 
+  plotly::plot_ly() %>%
+  plotly::add_boxplot(x = ~mpg, name = 'Miles per gallon') %>%
+  plotly::layout(title = 'Distribution of mpg')
+```
+
+## Univariate box plot: Miles per gallon
+
+### Plot
+
+```{r,echo = FALSE}
+plot
+```
+
+## Univariate bar chart: Number of cylinders
+
+### Code
+
+```{r}
+plot <- mtcars %>% 
+  dplyr::group_by(cyl) %>%
+  dplyr::summarise(cyl_count = n()) %>%
+  plotly::plot_ly() %>%
+  plotly::add_bars(y = ~cyl_count, x = ~cyl, name = 'Number of cylinders') %>%
+  plotly::layout(title = 'Distribution of cyl')
+```
+
+## Univariate bar chart: Number of cylinders
+
+### Plot
+
+```{r,echo = FALSE}
+plot
+```
+
+## Bivariate stats
+
+### Code
+
+```{r}
+plot <- mtcars %>%
+  dplyr::group_by(cyl) %>%
+  dplyr::summarise(mean_mpg = mean(mpg),
+                   var_mpg = var(mpg),
+                   n_cyl = n()) %>%
+  plotly::plot_ly(data = .,
+                  x = ~cyl,
+                  y = ~mean_mpg,
+                  type = 'bar',
+                  name = 'Miles per gallon',
+                  error_y = list(array = ~var_mpg,
+                                 color = '#000000')
+                  ) %>%
+  plotly::layout(title = 'Miles per gallon aggregated across number of cylinders')
+```
+
+## Bivariate stats
+
+### Plot
+
+```{r, echo = FALSE}
+plot
+```
