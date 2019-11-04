@@ -30,9 +30,11 @@ It's got everything!
 - number of bins: have a direct say in how granular the visuals should be!
 - number of samples: tired of having too high/low sampling counts? Now you can directly specify your favourite number!
 
-And of course:
+## Plots
 
-- 3 dimensional plots of simulated frequencies: draw from the distribution that you set and watch the sampling outcomes!
+Look at this plot! Just look at it!
+
+![A two dimensional normal distribution!](./newplot.png)
 
 ## Manual
 
