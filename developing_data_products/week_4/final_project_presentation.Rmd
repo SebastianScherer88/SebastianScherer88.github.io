@@ -1,0 +1,53 @@
+---
+title: "Normal distributions webapp"
+author: "Sebastian Scherer"
+date: "4 November 2019"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Visualizing two-dimensional normal distributions
+
+Have you ever wondered what a two-dimensional normal distribution might look like?
+
+I know I have!
+
+Now there's **THE** app that will answer that question. Introducing
+
+[**the two-dimensional normal distribution web app**](https://bettmensch88.shinyapps.io/normal_distribution/)
+
+(or *"ttdndwa"* for short)
+
+## Parameters
+
+It's got everything!
+
+- two dimensional mean: set the center of your distribution!
+- 2x2 covariance matrix: control the correlation of both axes by setting this matrix!
+- number of bins: have a direct say in how granular the visuals should be!
+- number of samples: tired of having too high/low sampling counts? Now you can directly specify your favourite number!
+
+And of course:
+
+- 3 dimensional plots of simulated frequencies: draw from the distribution that you set and watch the sampling outcomes!
+
+## Manual
+
+|   |   |
+|---|---|
+| It's super easy to use. Simply specify the settings shown in the screenshot, and see the sampled frequencies change before your eyes! | ![These are the parameters you get to change!](./settings.png) |
+
+## Summing up
+
+So what are you waiting for?! Visit [ttdndwa](https://bettmensch88.shinyapps.io/normal_distribution/) today and start plotting your own individual two dimensional normal distributions!
+
+Remember:
+
+- it's quick!
+- it's easy!
+- and it's free!
+
+You'd be ***crazy*** not to!
